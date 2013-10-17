@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ez Movie Rental</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<%= stylesheet_link_tag    "application", media: "all"  %>
+	<%= javascript_include_tag "application" %>
+	<%= csrf_meta_tags %>
+
+</head>
+<body style= "">
+	<!-- Logo & Navigation starts -->
+
+	<div class="header">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2 col-sm-2">
+					<!-- Logo -->
+					<div class="logo">
+						<h1><a href="<%= root_path %>">EzRental</a></h1>
+					</div>
+				</div>
+
+				<div class="col-md-6 col-sm-5">
+					<!-- Navigation menu -->
+					<div class="navi">
+						<div id="ddtopmenubar" class="mattblackmenu">
+							<ul>
+								<li><a href=<%= root_path %> >Home</a></li>
+
+								<li><a href=<%=members_path %> rel="ddsubmenu1">Account<class="downarrowpointer" style="width: 11px; height: 7px;"></a>
+
+								</li>
+
+								<li><a href=<%= movies_path %>>DVDs</a>
+
+								</li>                       
+								<li><a href="http://responsivewebinc.com/premium/olson/olsonkart/contactus.html">Contact</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-4 col-sm-5">
+					<div class="kart-links">
+            <% if session[:user_logged_name] == nil or session[:user_logged_name] == '' %>
+  						<a href=<%= login_path %> >Login</a> 
+  						<a href=<%= signup_path %> >Signup</a>
+						<% else %>
+              <a> Welcome <%= session[:user_logged_name] %> </a>
+            <% end %> 
+            <a href=<%= member_cart_path %> ><i class="icon-shopping-cart"></i> 3 Items - $300</a>
+					</div>
+				</div>
+
+
+				<div class="ddsubmenustyle" style="z-index: 2000; left: 0px; top: 0px; visibility: hidden;">
+					<ul id="ddsubmenu1" style="visibility: hidden;">
+
+						<li><a href=<%= members_path %> > My Account</a></li>
+						<li><a href=<%= member_cart_path %> >View Cart</a></li>
+						<li><a href=<%= member_history_path %> >Order History</a></li>
+
+					</ul>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<!-- Logo & Navigation ends -->
+
+	      <!-- Shopping cart Modal -->
+     <div class="modal fade" id="shoppingcart" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+       <div class="modal-dialog">
+         <div class="modal-content">
+           <div class="modal-header">
+             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+             <h4 class="modal-title">Shopping Cart</h4>
+           </div>
+           <div class="modal-body">
+           
+            <!-- Items table -->
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Quantity</th>
+                  <th>Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><a href="http://responsivewebinc.com/premium/olson/olsonkart/single-item.html">HTC One</a></td>
+                  <td>2</td>
+                  <td>$250</td>
+                </tr>
+                <tr>
+                  <td><a href="http://responsivewebinc.com/premium/olson/olsonkart/single-item.html">Apple iPhone</a></td>
+                  <td>1</td>
+                  <td>$502</td>
+                </tr>
+                <tr>
+                  <td><a href="http://responsivewebinc.com/premium/olson/olsonkart/single-item.html">Galaxy Note</a></td>
+                  <td>4</td>
+                  <td>$1303</td>
+                </tr>
+                <tr>
+                  <th></th>
+                  <th>Total</th>
+                  <th>$2405</th>
+                </tr>
+              </tbody>
+            </table>
+            
+           </div>
+           <div class="modal-footer">
+             <button type="button" class="btn btn-default" data-dismiss="modal">Continue Shopping</button>
+             <button type="button" class="btn btn-info">Checkout</button>
+           </div>
+         </div><!-- /.modal-content -->
+       </div><!-- /.modal-dialog -->
+     </div><!-- /.modal -->
+           
+
+	<%= yield %>
+
+	<footer>
+         <div class="container">
+         
+               <div class="row">
+
+                        <div class="col-md-4 col-sm-4">
+                           <div class="fwidget">
+                           
+                              <h4>Oslon de<span class="color">'</span> Ez Rental</h4>
+                              <hr>
+                              <p>.. smoke some company information </p>
+                              
+                              <div class="social">
+                                 <a href="#" class="facebook"><i class="icon-facebook"></i></a>
+                                 <a href="#" class="twitter"><i class="icon-twitter"></i></a>
+                                 <a href="#" class="google-plus"><i class="icon-google-plus"></i></a>
+                                 <a href="#" class="linkedin"><i class="icon-linkedin"></i></a>
+                                 <a href="#" class="pinterest"><i class="icon-pinterest"></i></a>
+                              </div>
+                           </div>
+                       </div>
+
+                       <div class="col-md-4 col-sm-4">
+                         <div class="fwidget">
+                           <h4>Others</h4>
+                           <hr>
+                           <ul>
+                           	 <li><a href="#" > Join us now! - Careers </a></li>
+                           	 <li><a href="#" >Happy or Sad? - Feedback </a></li>
+                             <li><a href=<%= admin_path %> >For Admin - Login</a></li>
+                             <li><a href=<%= admin_path %> >For Admin - Admin Portal</a></li>
+                           </ul>
+                         </div>
+                       </div>        
+
+                       
+
+                       <div class="col-md-4 col-sm-4">
+                         <div class="fwidget">
+                           
+                           <h4>Get In Touch</h4>
+                           <hr>
+                           <div class="address">
+                              <p><i class="icon-home color contact-icon"></i> #12, Plot No.14, Raj Karmara Street, </p>
+                              <p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 5th Stage, Koramangala, Madiwala,</p>
+                              <p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Bangalore - 493922, Karananana.</p>
+                              <p><i class="icon-phone color contact-icon"></i> +94-948-323-5532</p>
+                              <p><i class="icon-envelope color contact-icon"></i> <a href="mailto:something@gmail.com">some.thing@gmail.com</a></p>
+                           </div>
+                           
+                         </div>
+                       </div>
+
+                     </div>
+
+         
+         
+            <hr>
+            
+            <div class="copy text-center">
+               Copyright 2013 © - CS2102 Group 42</a>
+            </div>
+         </div>
+      </footer>
+      <!-- Footer ends -->
+
+</body>
+</html>
