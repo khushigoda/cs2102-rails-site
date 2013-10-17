@@ -27,4 +27,19 @@ Things you may want to cover:
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
 
+Setting up
+========================
+https://sites.google.com/site/cs3216mobileapi/setting-up-rails
 
+
+Khushi
+=========================
+Edit the following file to insert data
+
+    db/seeds.rb
+
+Note: if a movie license number is 123456, please put the corresponding image named 123456.jpg into public/img/movie/123456.jpg 
+
+Atika
+===========================
+Can help me with those text? 

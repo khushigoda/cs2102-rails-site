@@ -32,7 +32,6 @@ class CreateSchema < ActiveRecord::Migration
       t.integer :year
       t.string :description
       t.string :name
-      t.integer :contact_number
       t.string :genre
 
       # has_many :copies, :dependent => :delete_all
@@ -60,6 +59,7 @@ class CreateSchema < ActiveRecord::Migration
     create_table :members do |t|
 
       t.string :email, :primary_key => true
+      t.integer :contact_number
       t.string :password
       t.string :name
       t.string :address
