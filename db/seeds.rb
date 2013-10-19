@@ -15,6 +15,15 @@ Member.create(
 	:contact_number => '96268055'
 )
 
+Member.create(
+	:email => 'PatriciaWBoykins@teleworm.us',
+	:name => 'Patricia W. Boykins',
+	:password => 'Ohy7Siej3qu',
+	:address => '724 Bedok Reservoir Road, Singapore',
+	:zipcode => '470724',
+	:contact_number => '91999752'
+)
+
 Movies.create (
 
 	:license => '123456',
@@ -22,4 +31,13 @@ Movies.create (
 	:description => 'Superman vs Hulk',
 	:name => 'crazy marvels',
 	:genre => 'hehe'
+)
+
+Movies.create (
+	:license => '1',
+	:name => 'The Shawshank Redemption ',
+	:genre => 'Drama',
+	:language => 'English',
+	:year => '1994',
+	:description => 'The Shawshank Redemption '
 )
